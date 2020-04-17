@@ -10,9 +10,11 @@ Create a Docker network for the proxy to share with containers. The Docker netwo
  Finally, create the Traefik container with this command:
 
 
-"docker run -d -p 8080:8080 -p 80:80 \
+docker run -d -p 8080:8080 -p 80:80 \
 -v $PWD/traefik.yml:/etc/traefik/traefik.yml \
+-v $PWD/traefik.toml:/etc/traefik/traefik.toml \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --network proxy \
 --name traefik \
-traefik:v2.0"
+traefik:v2.0
+
